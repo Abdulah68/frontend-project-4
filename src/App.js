@@ -9,6 +9,7 @@ import SignIn from './auth/components/SignIn'
 import SignOut from './auth/components/SignOut'
 import ChangePassword from './auth/components/ChangePassword'
 import AlertDismissible from './auth/components/AlertDismissible'
+import WorkshopIndex from '../src/workshops/WorkshopIndex'
 
 class App extends Component {
   constructor () {
@@ -50,8 +51,11 @@ class App extends Component {
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword alert={this.alert} user={user} />
           )} />
-  
+          <AuthenticatedRoute user={user} path='/workshops' render={()=>(
 
+              <WorkshopIndex user={user} />
+          )} />
+  
         </main>
       </React.Fragment>
     )
