@@ -10,6 +10,10 @@ import SignOut from './auth/components/SignOut'
 import ChangePassword from './auth/components/ChangePassword'
 import AlertDismissible from './auth/components/AlertDismissible'
 import WorkshopIndex from '../src/workshops/WorkshopIndex'
+import WorkshopShow from '../src/workshops/WorkshopShow'
+import WorkshopCreate from './workshops/WorkshopCreate'
+import WorkshopEdit from './workshops/WorkshopEdit'
+
 
 class App extends Component {
   constructor () {
@@ -51,10 +55,22 @@ class App extends Component {
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword alert={this.alert} user={user} />
           )} />
-          <AuthenticatedRoute user={user} path='/workshops' render={()=>(
-
+          <AuthenticatedRoute user={user} exact path='/workshops' render={()=>(
+              
               <WorkshopIndex user={user} />
           )} />
+          <AuthenticatedRoute user={user} exact path='/workshops/:id' render={()=>(
+
+            <WorkshopShow user={user} />
+          )} />
+          <AuthenticatedRoute user={user} exact path='/Workshops/Create' render={()=>(
+
+            <WorkshopCreate user={user} />
+          )} />
+          <AuthenticatedRoute  user={user} exact path='/workshops/:id/edit' render={(props) => (
+            <WorkshopEdit user={user} />
+          )}/>
+
   
         </main>
       </React.Fragment>
