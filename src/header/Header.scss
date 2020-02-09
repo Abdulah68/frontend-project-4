@@ -6,11 +6,13 @@ $charcoal: #bbb;
   display: flex;
   height: 100px;
   padding: 0 20px;
+  background-color: #bcbabe !important;
 
   a,
   span {
     font-size: 1.2em;
     margin: 0 15px;
+    color: #1995ad;
   }
 }
 
@@ -28,8 +30,9 @@ $charcoal: #bbb;
     height: auto;
     padding: 10px;
 
-    h1 {
+    .h,h1 {
       font-size: 2.5em;
+     background-color: white !important;
     }
   }
 }

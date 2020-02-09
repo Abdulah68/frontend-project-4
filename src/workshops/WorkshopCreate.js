@@ -38,42 +38,64 @@ handleChange = (event) => {
 
 render(){
 return(
-<div>
+<div className="create">
 <h3>Create New WorkShop</h3>
 <form onSubmit={this.handleSubmit}>
-    <label>Image</label>
+<div classNam="form-group">
+ <label for="formGroupExampleInput">Image</label>
  <input 
     name="image"
     type="text"
+    className="form-control"
     value={this.state.workshopForm.image}
     onChange={this.handleChange}
   />
+  </div>
 <br/>
-<label>Title</label>
+<div classNam="form-group">
+<label for="formGroupExampleInput">Title</label>
 <input 
 name="title"
 type="text"
+className="form-control"
 value={this.state.workshopForm.title}
 onChange={this.handleChange}
  />
+ </div>
  <br/>
-<label>Date</label>
+ <div classNam="form-group">
+<label for="formGroupExampleInput">Date</label>
 <input 
 name="date"
-type="text"
+type="date"
+className="form-control"
 value={this.state.workshopForm.date}
 onChange={this.handleChange}
 />
+</div>
 <br/>
-<label>Location</label>
+<div classNam="form-group">
+<label for="formGroupExampleInput">Time</label>
+<input 
+name="time"
+type="text"
+className="form-control"
+value={this.state.workshopForm.date}
+onChange={this.handleChange}
+/>
+</div>
+<div classNam="form-group">
+<label for="formGroupExampleInput">Location</label>
  <input 
 name="location"
 type="text"
+className="form-control"
 value={this.state.workshopForm.location}
 onChange={this.handleChange}
 />
+</div>
 <br/>
-<button type="submit">Create</button>
+<button className="btn btn-success" type="submit">Create</button>
  </form>
 </div>
 )}}

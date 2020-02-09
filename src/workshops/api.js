@@ -11,9 +11,16 @@ export const index = (user) =>{
 
     })
 }
+export const indexx = () =>{
+    return axios({
+    url:apiUrl + '/workshopss',
+    method: 'GET'
+
+    })
+}   
 export const show = (user , workshopId) =>{
     return axios({
-        url:apiUrl + `/workshop ${workshopId}` ,
+        url:apiUrl + `/workshops/${workshopId}` ,
         method: 'GET' ,
         headers: {
             "Authorization" : `Bearer ${user.token}`
@@ -42,13 +49,15 @@ export const create = (user,newWorkshop)=>{
     })
 }
 
-export const update = (user , workshopId ,updateWorkshop) => {
-    return({
-        url:apiUrl + `/workshops ${workshopId}`,
-        method: 'PATCH',
+export const update = (user ,  updateWorkshop, workshopId) => {
+    return axios({
+        url:apiUrl + `/workshops/${workshopId}`,
+        method: 'patch',
         headers:{
             "Authorization":`Bearer ${user.token}`
         },
-        data: {workshop : updateWorkshop}
+        data: {
+            workshop : updateWorkshop
+        }
     })
 }

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './App.scss'
 import { Route } from 'react-router-dom'
 
+
 import AuthenticatedRoute from './auth/components/AuthenticatedRoute'
 import Header from './header/Header'
 import SignUp from './auth/components/SignUp'
@@ -9,8 +10,8 @@ import SignIn from './auth/components/SignIn'
 import SignOut from './auth/components/SignOut'
 import ChangePassword from './auth/components/ChangePassword'
 import AlertDismissible from './auth/components/AlertDismissible'
-import WorkshopIndex from '../src/workshops/WorkshopIndex'
-import WorkshopShow from '../src/workshops/WorkshopShow'
+import WorkshopIndex from './workshops/WorkshopIndex'
+import WorkshopShow from './workshops/WorkshopShow'
 import WorkshopCreate from './workshops/WorkshopCreate'
 import WorkshopEdit from './workshops/WorkshopEdit'
 
@@ -61,13 +62,13 @@ class App extends Component {
           )} />
           <AuthenticatedRoute user={user} exact path='/workshops/:id' render={()=>(
 
-            <WorkshopShow user={user} />
+            <WorkshopShow user={user}  />
           )} />
           <AuthenticatedRoute user={user} exact path='/Workshops/Create' render={()=>(
 
             <WorkshopCreate user={user} />
           )} />
-          <AuthenticatedRoute  user={user} exact path='/workshops/:id/edit' render={(props) => (
+          <AuthenticatedRoute  user={user} exact path='/workshops/:id/edit' render={() => (
             <WorkshopEdit user={user} />
           )}/>
 

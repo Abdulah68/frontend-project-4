@@ -1,9 +1,23 @@
 body {
-  font-family: sans-serif;
+  font-family: Arial, Helvetica, sans-serif !important;
   margin: 0;
   padding: 0;
+  background-color: #f1f1f2 !important;
+  // display: flex;
+  display: inline;
+  align-items: flex-end;
+}
+.card-body{
+  background-color: #f1f1f2;
+}
+
+div.body{
+  display: flex !important;
+  flex-direction: column;
 }
 
 .alert {
   margin: 30px;
 }
+
+

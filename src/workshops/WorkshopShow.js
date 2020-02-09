@@ -1,39 +1,43 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom'
+import { show } from "./api";
 
-import {show } from './api'
+class WorkShopShow extends Component {
+    state = { 
+      workshops: []
+     }
 
-class WorkShopShow extends Component{
-    state = {
- 
-        workshops:[]
-    }
-    componentDidMount(){
-    const user = this.props.user
-    show(user)
-    .then((response)=>{
-      const workshops = response.data.workShops
-      console.log(workshops)
-      this.setState({
-        workshops : workshops
-      })
-    })
-    .catch(error =>console.log(error))
-}
-
-
-
-    render(){
-        // const workshopObj = this.props.workShops
-        return(
-            <div className="show">
-        <img src={this.state.image} alt="" height="200"width="200"></img>
-        <h2>{this.state.title}</h2>
-        <h2>{this.state.date}</h2>
-        <h2>{this.state.location}</h2>        
+     componentDidMount() {
+        const user = this.props.user
+        const workshopId = this.props.match.params.id 
+        show(user, workshopId)
+        .then( response => {
+            const workshop = response.data.workshop
+            this.setState({
+              workshop: workshop
+            })
+        })
+        .catch(error => console.log(error))
+     }
+    
+    render() { 
         
-        </div>
-        )
+        return ( 
+          <div>
+          {this.state.workshops.map((workshop, show)=>(
+            <div>
+                
+                <img src={this.state.workshop.image} alt=""/>
+                <p>title: {this.state.workshop.title} </p> 
+                <p>Date: {this.state.workshop.date} </p> 
+                <p>time: {this.state.workshop.time}</p>
+                <p>location: {this.state.workshop.location}</p>
+                
+            </div>
+          ))}
+          </div>
+         )
     }
 }
-
-export default WorkShopShow
+ 
+export default withRouter(WorkShopShow)
