@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {show,update} from './api';
-import { withRouter} from 'react-router-dom';
+import {    withRouter} from 'react-router-dom';
 
 class WorkshopEdit extends Component{
     state={
@@ -96,7 +96,7 @@ class WorkshopEdit extends Component{
             name="time"
             type="time"
             className="form-control"
-            value={this.state.workshopForm.date}
+            // value={this.state.workshopForm.date}
             onChange={this.handleChange}
             />
             </div>

@@ -19,6 +19,11 @@ class WorkShopShow extends Component {
         })
         .catch(error => console.log(error))
      }
+     handleClicks(){this.handleClicks.bind(this);
+      this.setState((prevState) => ({
+      isToggleOn: !prevState.isToggleOn
+      }));
+  }
     
     render() { 
         
@@ -32,6 +37,8 @@ class WorkShopShow extends Component {
                 <p>Date: {this.state.workshop.date} </p> 
                 <p>time: {this.state.workshop.time}</p>
                 <p>location: {this.state.workshop.location}</p>
+                <button className="btn btn-secondary" onClick={ this.handleClicks.bind(this)}>
+                 {this.state.isToggleOn ? 'ON' : 'OFF'} </button>
                 
             </div>
           ))}

@@ -9,8 +9,11 @@ class WorkShopIndex extends Component{
     state = {
  
         workshops:[],
-        clicks:0
+        clicks:0,
+        isToggleOn: true
+        
     }
+    
 componentDidMount(){
     const user = this.props.user
     index(user)
@@ -25,9 +28,13 @@ componentDidMount(){
 }
 handleClick() {
     this.setState((prevState) => ({
-         clicks: prevState.clicks + 1
+         clicks: prevState.clicks + 1,
+         
+         
+         
     }));
 }
+
 
 destroy = (id) => {
     const user = this.props.user
@@ -53,14 +60,15 @@ destroy = (id) => {
                     <div className="card-body">
                     <h4 className="card-title">{workshop.title}</h4>
                     <p className="card-title">  {workshop.date}</p>
-                    {/* <p className="card-title">{workshop.time}</p> */}
+                    <p className="card-title">{workshop.time}</p>
                     <p> {workshop.location}</p>
                     </div>
                     <div className="btn-group">
                     <button  className="btn btn-danger" onClick={()=> this.destroy(workshop._id)}>Delete</button>
                     <Link className="btn btn-secondary"  to={`/workshops/${workshop._id}/edit`}>Update</Link>
-                    {/* <Link className="btn btn-secondary" to={`/workshops/${workshop._id}`}>Show</Link> */}
-                    {/* <button className="btn btn-secondary" onClick={this.handleClick.bind(this)}> {this.state.clicks} persons</button> */}
+                    <Link className="btn btn-secondary" to={`/workshops/${workshop._id}`}>Show</Link>
+                    <button className="btn btn-secondary" onClick={this.handleClick.bind(this)}> {this.state.clicks} persons</button>
+                    
                     </div>
                     </div>
                     </div>

@@ -2,16 +2,19 @@ import React, { Component } from 'react';
 import {create} from './api'
 import {withRouter} from 'react-router-dom'
 
+import TimeField from 'react-simple-timefield';
+
 class WorkShopCreate extends Component{
     
-    state={
-        workshopForm:{
+state={
+ workshopForm:{
         image: "",
         title: "",
         date: "",
-        location: ""
-        }
-    }
+        location: "",
+        time: ""
+             }
+      }
     
 handleChange = (event) => {
     const name = event.target.name
@@ -21,9 +24,10 @@ handleChange = (event) => {
         this.setState({
             workshopForm:newForm
         })
-    }
+    }      
     handleSubmit = (event) => {
         event.preventDefault();
+        console.log(event.target.value);
         const newWorkshop = this.state.workshopForm
         const user = this.props.user
         // console.log(user,newWorkshop)
@@ -37,6 +41,7 @@ handleChange = (event) => {
     }
 
 render(){
+
 return(
 <div className="create">
 <h3>Create New WorkShop</h3>
@@ -49,6 +54,7 @@ return(
     className="form-control"
     value={this.state.workshopForm.image}
     onChange={this.handleChange}
+    required
   />
   </div>
 <br/>
@@ -60,6 +66,7 @@ type="text"
 className="form-control"
 value={this.state.workshopForm.title}
 onChange={this.handleChange}
+required
  />
  </div>
  <br/>
@@ -71,6 +78,7 @@ type="date"
 className="form-control"
 value={this.state.workshopForm.date}
 onChange={this.handleChange}
+required
 />
 </div>
 <br/>
@@ -78,9 +86,9 @@ onChange={this.handleChange}
 <label for="formGroupExampleInput">Time</label>
 <input 
 name="time"
-type="text"
+type="time"
 className="form-control"
-value={this.state.workshopForm.date}
+// value={this.state.workshopForm.date}
 onChange={this.handleChange}
 />
 </div>
@@ -92,6 +100,7 @@ type="text"
 className="form-control"
 value={this.state.workshopForm.location}
 onChange={this.handleChange}
+required
 />
 </div>
 <br/>
